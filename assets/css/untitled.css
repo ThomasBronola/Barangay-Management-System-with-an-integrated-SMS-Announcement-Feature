@@ -12,6 +12,8 @@
 }
 
 .item-intro {
-  width: 91%;
+  width: 93%;
+  color: blue;
+  cursor: pointer;
 }
 

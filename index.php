@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Home - Brand</title>
+    <title>Barangay System</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
@@ -13,17 +13,11 @@
 </head>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
-    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
-        <div class="container"><a class="navbar-brand" href="#page-top">brand</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link" href="#team">Officials</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#modal-login" data-bs-toggle="modal">LOGIN</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+<!-- HEADER -->
+<?php include 'HF/header.php';?> 
+
+    <!-- MAIN LANDING BODY -->
     <header class="masthead" style="background-image:url('assets/img/header-bg.jpg');">
         <div class="container">
             <div class="intro-text">
@@ -32,6 +26,8 @@
             </div>
         </div>
     </header>
+
+    <!-- STAFF -->
     <section class="bg-light" id="team">
         <div class="container">
             <div class="row">
@@ -71,6 +67,8 @@
             </div>
         </div>
     </section>
+
+    <!-- REPORT OR CONTACT -->
     <section id="contact" style="background-image:url('assets/img/map-image.png');">
         <div class="container">
             <div class="row">
@@ -101,37 +99,27 @@
             </div>
         </div>
     </section>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4"><span class="copyright">Copyright&nbsp;© Brand 2022</span></div>
-                <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                        <li class="list-inline-item"><a href="#">Terms of Use</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="modal-login">
-        <div class="modal-dialog modal-lg" role="document">
+
+
+<!-- MODALS -->
+
+    <!-- LOGIN MODAL -->
+    <div class="modal fade text-center" role="dialog" tabindex="-1" id="modal-login">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
             <div class="modal-content">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
                             <div class="modal-body">
-                                <div class="col"><button class="btn btn-primary modal-dismiss" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span></span></button></div>
+                                <br> 
+                                <div class="col">                              
+                                <button class="btn btn-primary modal-dismiss" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span></span></button></div>                                
                                 <h2 class="text-uppercase modal-heading">login</h2>
-                                <p class="text-muted item-intro" href="#modal-forgetpass" data-bs-toggle="modal" data-bs-dismiss="modal">forget password?</p><input type="email" id="login-email" class="login" placeholder="Email">
-                                <div></div><input type="password" id="login-pass" class="login" placeholder="Password">
+                                <p class="item-intro" href="#modal-forgetpass" data-bs-toggle="modal" data-bs-dismiss="modal">forget password?</p> 
+                                <input type="email" id="login-email" class="login" placeholder="Email">
+                                <div></div>
+                                <input type="password" id="login-pass" class="login" placeholder="Password">
+                                <div> <br> <br> </div>
                             </div>
                         </div>
                     </div>
@@ -139,15 +127,21 @@
             </div>
         </div>
     </div>
-    <div class="modal fade text-center portfolio-modal" role="dialog" tabindex="-1" id="modal-forgetpass">
-        <div class="modal-dialog modal-lg" role="document">
+
+    <!-- FORGET PASS MODAL -->
+    <div class="modal fade text-center" role="dialog" tabindex="-1" id="modal-forgetpass">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
             <div class="modal-content">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
                             <div class="modal-body">
-                                <div class="col"><button class="btn btn-primary modal-dismiss" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span></span></button></div>
-                                <h2 class="text-uppercase">FORGET PASSWORD</h2><input type="email" id="login-email" class="login" placeholder="Email">
+                                <br> 
+                                <div class="col"><button class="btn btn-primary modal-dismiss" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span></span></button></div>                                
+                                <h2 class="text-uppercase">FORGOT PASSWORD</h2>
+                                <br>
+                                <input type="email" id="login-email" class="login" placeholder="Email">
+                                <div> <br> <br> </div>
                             </div>
                         </div>
                     </div>
@@ -157,6 +151,8 @@
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/agency.js"></script>
-</body>
 
+    <!-- FOOTER -->
+    <?php include 'HF/footer.php';?> 
+</body>
 </html>
