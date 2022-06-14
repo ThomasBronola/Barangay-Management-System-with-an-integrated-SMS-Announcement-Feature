@@ -21,7 +21,7 @@
     <header class="masthead" style="background-image:url('assets/img/header-bg.jpg');">
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in"><span>Welcome To The Barangay Report Management System</span></div>
+                <div class="intro-lead-in"><span>Welcome To Barangay 53</span></div>
                 <div class="intro-heading text-uppercase"><span>HAVE A GREAT DAY!</span></div>
             </div>
         </div>
@@ -102,6 +102,22 @@
 
 
 <!-- MODALS -->
+
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+?>
+
 
     <!-- LOGIN MODAL -->
     <div class="modal fade text-center" role="dialog" tabindex="-1" id="modal-login">
