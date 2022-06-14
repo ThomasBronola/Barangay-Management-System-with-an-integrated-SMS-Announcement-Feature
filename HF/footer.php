@@ -1,7 +1,7 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-4"><span class="copyright">Copyright&nbsp;© Brand 2022</span></div>
+            <div class="col-md-4"><span class="copyright">Copyright&nbsp;© Avellana 2022</span></div>
             <div class="col-md-4">
                 <ul class="list-inline social-buttons">
                     <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>

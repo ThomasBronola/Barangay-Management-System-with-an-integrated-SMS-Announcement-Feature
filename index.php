@@ -1,5 +1,5 @@
 <?php 
-    include_once 'database.php';
+    include_once 'includes/database.php';
 ?>
 
 <!DOCTYPE html>
@@ -105,6 +105,11 @@
     </section>
 
 
+    <!-- TESTING 3:05 PM JULY 14, 2022 -->
+    <!-- THOMAS -->
+
+
+
 <!-- MODALS -->
 
 
@@ -121,10 +126,15 @@
                                 <button class="btn btn-primary modal-dismiss" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span></span></button></div>                                
                                 <h2 class="text-uppercase modal-heading">login</h2>
                                 <p class="item-intro" href="#modal-forgetpass" data-bs-toggle="modal" data-bs-dismiss="modal">forget password?</p> 
-                                <input type="email" id="login-email" class="login" placeholder="Email">
-                                <div></div>
-                                <input type="password" id="login-pass" class="login" placeholder="Password">
-                                <div> <br> <br> </div>
+
+                                <form action="includes/login.php" method="post">
+                                    <input type="email" id="email" name="email" class="login" placeholder="Email">
+                                    <div></div>
+                                    <input type="password" id="password" name="password" class="login" placeholder="Password">
+                                    <div> <br> <br> </div>
+                                    <button class="btn bg-info" type="submit" name="loginButton">Login</button>   
+                                    <div> <br> </div>
+                                </form> 
                             </div>
                         </div>
                     </div>

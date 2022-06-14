@@ -1,5 +1,7 @@
 <?php
 $servername = "localhost";
+$db_name = "brgy53";
+// $db_name = "capstone";
 $username = "root";
 $password = "";
 $db_name = "brgy53";
