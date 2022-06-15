@@ -1,0 +1,38 @@
+.login {
+  border: none;
+  border-bottom: solid;
+}
+
+.modal-dismiss {
+  float: right;
+}
+
+.modal-heading {
+  cursor: default;
+}
+
+.item-intro {
+  width: 93%;
+  color: blue;
+  cursor: pointer;
+}
+
+#btnScroll {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#btnScroll:hover {
+  background-color: #555;
+}
