@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
     <link rel="stylesheet" href="../assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/css/mstyles.css">
-    <script type="text/javascript" src="../assets/js/stickyscroll.js"></script>
 </head>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
@@ -135,7 +134,7 @@
     <!-- SCRIPT FOR NAVIGATION TAB/HEADER ANIMATION -->
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/agency.js"></script>
-
+    <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     <!-- FOOTER FILE  -->
     <?php include '../HF/footer.php';?> 
 
