@@ -4,6 +4,7 @@ $db_name = "brgy53";
 // $db_name = "capstone";
 $username = "root";
 $password = "";
+$db_name = "brgy53";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db_name);
