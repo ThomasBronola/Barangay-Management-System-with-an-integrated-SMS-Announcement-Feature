@@ -16,11 +16,10 @@
     
     <!-- HEADER FILE -->
     <?php include '../HF/headerofficials.php';?>
-    <br> <br> <br> <br> <br>
-    <button onclick="topFunction()" id="btnScroll" title="Go to top" class="fa-solid fa-chevron-up"> </button>
-
+    
     <!-- CHAIRMAN  -->
-    <div class="container">    
+    <div class="container">   
+        <br> <br> <br> <br> <br> 
         <div class="col-lg-12 text-center">
             <h2 class="text-uppercase">Official list</h2>
             <h3 class="text-muted section-subheading">Brgy. Chairman</h3>
