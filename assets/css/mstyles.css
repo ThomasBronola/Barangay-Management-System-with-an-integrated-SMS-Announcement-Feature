@@ -16,3 +16,20 @@
   color: blue;
   cursor: pointer;
 }
+
+span {
+  color: #e5bc31;
+}
+
+#txtArea-announcement, #save-announcement, #header-announcement{
+  margin-left: 1%;
+}
+
+#txtArea-announcements{
+  margin-top: -18%;
+}
+
+#txtArea-announcements{
+  background-color: rgb(52, 58, 64);
+  color: white;
+}

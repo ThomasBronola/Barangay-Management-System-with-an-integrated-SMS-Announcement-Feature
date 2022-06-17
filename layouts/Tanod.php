@@ -33,12 +33,26 @@
     </header>
 
 
-    <header class="masthead" style="background-image:url('../assets/img/header-bg.jpg');" id="announcements">
-        <div class="container">
-            <div class="intro-text">              
-                <div class="intro-heading text-uppercase"><span>Announcement!</span></div>
+
+    <!-- ADJUST THIS PORTION TO GET THE ANNOUNCEMENT FROM THE DATABASE -->
+    <?php
+        $txt = "Announcements!";        
+    ?>
+
+
+    <header class="masthead bg-dark" id="announcements">
+        <div>   <!-- class="container" -->
+        <br> <br><br>
+        <h1 class="intro-heading text-uppercase color-light tanod-announcement"> ANNOUNCEMENT! </h1>  
+            <div class="intro-text">
+                           
+                <div>                    
+                    <?php
+                        echo '<textarea readonly id="txtArea-announcements" rows="40" cols="100"></textarea>';
+                    ?>
+                </div>
             </div>
-    </div>
+        </div>  
     </header>
 
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
