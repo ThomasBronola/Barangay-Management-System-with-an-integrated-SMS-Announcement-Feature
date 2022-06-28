@@ -4,5 +4,20 @@ adminNavigations - side nav, top nav
 footer 
 login
 
-
 buttons might have no id and names
+
+
+TO DO LIST:
+
+Landing Pages (DONE)
+Login
+Forget Password
+Register
+Edit
+Announcements
+Sms
+Activity Log
+Graphs for Blotter reports (View)
+Add Blotter Report
+
+
