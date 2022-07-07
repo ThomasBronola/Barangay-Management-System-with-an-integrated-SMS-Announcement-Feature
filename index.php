@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/untitled.css">
+    <link rel="stylesheet" href="assets/css/mstyles.css">
 </head>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
@@ -27,50 +27,22 @@
             <div class="intro-text">
                 <div class="intro-lead-in"><span>Welcome To Barangay Singko Tres</span></div>
                 <div class="intro-heading text-uppercase"><span>HAVE A GREAT DAY!</span></div>
-            </div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" role="button" href="#announcements">See Announcements</a>
+            </div>            
         </div>
     </header>
 
-    <!-- STAFF -->
-    <section class="bg-light" id="team">
+
+    <header class="masthead" style="background-image:url('assets/img/header-bg.jpg');" id="announcements">
         <div class="container">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/team/bernie1.jpg">
-                        <h4>Bernie De Vega</h4>
-                        <p class="text-muted">Brgy. Captain</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/team/pakalu.jpg">
-                        <h4>Bernie De Vega II</h4>
-                        <p class="text-muted">Tanod</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="team-member"><img class="rounded-circle mx-auto" src="assets/img/team/bernie1.jpg">
-                        <h4>Bernie De Vega III</h4>
-                        <p class="text-muted">Tanod</p>
-                        <ul class="list-inline social-buttons">
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="intro-text">              
+                <div class="intro-heading text-uppercase"><span>Announcement!</span></div>
             </div>
-        </div>
-    </section>
+    </div>
+    </header>
+
+
+    
 
     <!-- REPORT OR CONTACT -->
     <section id="contact" style="background-image:url('assets/img/map-image.png');">
@@ -105,13 +77,7 @@
     </section>
 
 
-    <!-- TESTING 3:05 PM JULY 14, 2022 -->
-    <!-- THOMAS -->
-
-
-
 <!-- MODALS -->
-
 
     <!-- LOGIN MODAL -->
     <div class="modal fade text-center" role="dialog" tabindex="-1" id="modal-login">
@@ -166,6 +132,8 @@
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/agency.js"></script>
+
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
 
     <!-- FOOTER -->
     <?php include 'HF/footer.php';?> 

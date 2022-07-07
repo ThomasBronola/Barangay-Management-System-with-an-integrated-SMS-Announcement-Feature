@@ -1,0 +1,8 @@
+THINGS TO UPDATE CODE OF SESSIONS
+
+adminNavigations - side nav, top nav
+footer 
+login
+
+
+buttons might have no id and names
