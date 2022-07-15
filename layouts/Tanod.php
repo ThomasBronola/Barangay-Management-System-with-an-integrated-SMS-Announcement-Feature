@@ -1,5 +1,12 @@
 <?php 
     include_once '../includes/database.php';
+    require_once '../includes/functions.php';
+    session_start();
+
+    if (empty( $_SESSION["user_type"]) || $_SESSION["user_type"] !== "tanod"){
+        header("location: ../landing-page.php");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -34,26 +41,52 @@
 
 
 
-    <!-- ADJUST THIS PORTION TO GET THE ANNOUNCEMENT FROM THE DATABASE -->
+    <!-- GETTING AND DISPLAYING THE LAST ANNOUNCEMENT SAVED IN THE DATABASE. -->
+
     <?php
-        $txt = "Announcements!";        
+
+
+$sql = "SELECT * FROM announcements ORDER BY ID DESC LIMIT 1";
+$result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+          echo ' 
+          <header class="masthead bg-dark" id="announcements">
+              <div>   <!-- class="container" -->
+              <br> <br><br>
+              <h1 class="intro-heading text-uppercase color-light tanod-announcement"  id="announcement-header"> ANNOUNCEMENT! </h1>  
+                  <div class="intro-text">
+                                             
+                          <div>                    
+                              <textarea readonly id="txtArea-announcements" rows="30" cols="90"> '.$row["announce"].'</textarea>
+                          </div>
+                       
+                  </div>
+              </div>  
+          </header>
+          '; 
+        }
+      }  else 
+      echo ' 
+      <header class="masthead bg-dark" id="announcements">
+          <div>   <!-- class="container" -->
+          <br> <br><br>
+          <h1 class="intro-heading text-uppercase color-light tanod-announcement"  id="announcement-header"> ANNOUNCEMENT! </h1>  
+              <div class="intro-text">
+                                         
+                      <div>                    
+                          <textarea readonly id="txtArea-announcements" rows="30" cols="90">No Announcements Made</textarea>
+                      </div>
+                   
+              </div>
+          </div>  
+      </header>
+      '; 
+
     ?>
 
-
-    <header class="masthead bg-dark" id="announcements">
-        <div>   <!-- class="container" -->
-        <br> <br><br>
-        <h1 class="intro-heading text-uppercase color-light tanod-announcement"> ANNOUNCEMENT! </h1>  
-            <div class="intro-text">
-                           
-                <div>                    
-                    <?php
-                        echo '<textarea readonly id="txtArea-announcements" rows="40" cols="100"></textarea>';
-                    ?>
-                </div>
-            </div>
-        </div>  
-    </header>
 
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../assets/js/agency.js"></script>

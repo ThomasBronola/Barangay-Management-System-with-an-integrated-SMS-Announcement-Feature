@@ -1,23 +1,64 @@
-THINGS TO UPDATE CODE OF SESSIONS
-
-adminNavigations - side nav, top nav
-footer 
-login
-
-buttons might have no id and names
-
-
 TO DO LIST:
 
 Landing Pages (DONE)
-Login
-Forget Password
-Register
-Edit
-Announcements
-Sms
-Activity Log
-Graphs for Blotter reports (View)
-Add Blotter Report
+Users:
+	Login (DONE) (QUALITY CHECKED)
+	Register (DONE) (Quality check on inputting non-numeric on contact number field still needed)		
+	Edit - (DONE) (QUALITY CHECKED)
+	Delete - (DONE) (QUALITY CHECKED)
+	Logout (DONE) (QUALITY CHECKED)
 
+Announcements - (DONE) (QUALITY CHECKED)
+Add Blotter Report (DONE) (QUALITY CHECKED)
+Activity Log - (DONE) (QUALITY CHECKED)
+Viewing of Blotter Report in table format - (DONE) (QUALITY CHECKED)
+Edit Blotter Report- (DONE) (QUALITY CHECKED)
+Search Functions in Users, Activity log & Blotter reports - (DONE) (QUALITY CHECKED)
+Viewing of Graphs in system admin dashboard - (DONE) (QUALITY CHECKED)
+Page Functions sa mga may tables - (DONE) (QUALITY CHECKED)
+
+14/17
+82.35% Accomplished
+
+
+
+Sms - should be sent after saving announcement
+Logo's, Officials pictures and names	
+
+MEDYO ALANGANIN SA FREE HOSTING DAHIL SA NEW SECURITY UPDATE NG GMAILS KAYA HINDI MAKAPAG
+EMAIL VIA PHP: 
+
+Forget Password
+
+
+Optional: (Commented out this portion of the code)
+Report/Contact in landing page/Change to Maps location. 
+
+
+
+09154273628
+Singko.Tres@outlook.com
+Barangay_Singko_Tres_101
+
+
+semaphore api key: e496683564f28d41f717b1744f976b89
+
+
+
+
+
+QUALITY CHECKING TO DO LIST:
+All functions
+Security when switching pages when not logged in or different user type.
+
+
+Accounts:
+Password for all: !Abc12345
+
+captain@gmail.com
+tanod@gmail.com
+tester@gmail.com
+admin@gmail.com
+systemadmin@gmail.com
+client@gmail.com
 

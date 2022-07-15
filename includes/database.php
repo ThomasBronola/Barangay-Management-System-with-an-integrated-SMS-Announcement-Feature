@@ -1,15 +1,17 @@
 <?php
 $servername = "localhost";
 $db_name = "brgy53";
-// $db_name = "capstone";
 $username = "root";
 $password = "";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $db_name);
+// NOTES
+// open up a connection to a database
+// procedual php (mysqli)
+// mysqli functions
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+$conn = mysqli_connect($servername, $username, $password, $db_name);
+
+if (!$conn){
+    die("connection failed: " . mysqli_connect_error());
+
 }
-?>

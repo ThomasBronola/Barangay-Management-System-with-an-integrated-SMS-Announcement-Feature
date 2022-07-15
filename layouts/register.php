@@ -1,5 +1,11 @@
 <?php 
-    include_once '../includes/database.php';
+    require_once '../includes/database.php';
+    session_start();
+
+    if (empty( $_SESSION["user_type"]) || $_SESSION["user_type"] == "captain" || $_SESSION["user_type"] == "tanod"){
+        header("location: ../index.php");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -34,20 +40,34 @@ include_once '../HF/adminNavigations.php';
                                         <div class="text-center">
                                             <h4 class="text-dark mb-4">Create an Account!</h4>
                                         </div>
-                                        <form class="user">
+
+                                        <form class="user" action="../includes/signup.php" method="post">
                                             <div class="row mb-3">
-                                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="First Name" name="first_name"></div>
-                                                <div class="col-sm-6"><input class="form-control form-control-user" type="text" id="exampleFirstName" placeholder="Last Name" name="last_name"></div>
+                                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" required autofocus type="text" id="full_name" placeholder="Full Name" name="fullname"></div>
+                                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" required type="tel" placeholder="Contact Number (09xxxxxxxxx)" maxlength = "11" name="user_contact"></div>
                                             </div>
-                                            <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Address" name="email"></div>
+                                            <div class="mb-3"><input class="form-control form-control-user" required type="email" id="email" aria-describedby="emailHelp" placeholder="Email Address" name="email"></div>
+                                            <div class="mb-3">
+                                                    <select class="text-center form-control form-control-user" name="usertypeSELECT" required>
+                                                        <option disabled selected>--Select Usertype--</option>
+                                                        <option value="captain">Captain</option>
+                                                        <option value="secretary">Secretary</option>
+                                                        <option value="tanod" >Tanod</option>
+                                                        <option value="client">Client</option>
+                                                        <option value="systemadmin">System Admin</option>
+                                                        <option value="admin">Admin</option>                                                                                                             
+                                                </select>
+                                                </div>
                                             <div class="row mb-3">
-                                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" id="examplePasswordInput" placeholder="Password" name="password"></div>
-                                                <div class="col-sm-6"><input class="form-control form-control-user" type="password" id="exampleRepeatPasswordInput" placeholder="Repeat Password" name="password_repeat"></div>
+                                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" required type="password" id="password" placeholder="Password" name="password"></div>
+                                                <div class="col-sm-6"><input class="form-control form-control-user" required type="password" id="confirm-password" placeholder="Repeat Password" name="confirm-password"></div>
                                             </div>
-                                            <button class="btn btn-primary d-block btn-user w-100" type="submit">Register Account</button>
+                                            <button class="btn btn-primary d-block btn-user w-100" type="submit" name="registerButton">Register Account</button>
                                             <hr>
                                             <hr>
                                         </form>
+
+
                                         <div class="text-center"></div>
                                         <div class="text-center"></div>
                                     </div>

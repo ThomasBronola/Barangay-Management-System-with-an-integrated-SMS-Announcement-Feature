@@ -129,6 +129,39 @@
         </div>
     </div>
 
+    <!-- LOGIN MODAL -->
+    <div class="modal fade text-center" role="dialog" tabindex="-1" id="modal-login">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <br> 
+                                <div class="col">                              
+                                <button class="btn btn-primary modal-dismiss" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span></span></button></div>                                
+                                <h2 class="text-uppercase modal-heading">login</h2>
+                                <p class="item-intro" href="#modal-forgetpass" data-bs-toggle="modal" data-bs-dismiss="modal">forget password?</p> 
+
+                                <form action="../includes/login.php" method="post">
+                                    <input type="email" required id="email" name="email" class="login" placeholder="Email">
+                                    <div></div>
+                                    <input type="password" required id="password" name="password" class="login" placeholder="Password">
+                                    <div> <br> <br> </div>
+                                    <button class="btn bg-info" type="submit" name="loginButton">Login</button>   
+                                    <div> <br> </div>
+                                </form> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 </body>
 
     <!-- SCRIPT FOR NAVIGATION TAB/HEADER ANIMATION -->

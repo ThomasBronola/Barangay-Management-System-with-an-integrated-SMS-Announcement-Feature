@@ -33,3 +33,21 @@ span {
   background-color: rgb(52, 58, 64);
   color: white;
 }
+
+
+#txtArea-blotter{
+  margin: 4%;
+}
+
+#announcement-header{
+  margin-bottom: -4%;
+  margin-top: -1%;
+}
+
+
+#save-blotter{
+  margin-top: 4%;
+  margin-bottom: 4%;
+  margin-left: 12%;
+  margin-right: 12%;
+}
