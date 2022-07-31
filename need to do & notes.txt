@@ -40,11 +40,12 @@ Report/Contact in landing page/Change to Maps location.
 Singko.Tres@outlook.com
 Barangay_Singko_Tres_101
 
+twilio
+account sid: AC704ac97bf21aead8489c67585ce1349b
+autho token: 1492c725bcb1aa37dade85419ead02c5
+API Key: SKce4745e93888bd4dc20c89cff6200f35
 
-semaphore api key: e496683564f28d41f717b1744f976b89
-
-
-
+trial phone number: +17752566122
 
 
 QUALITY CHECKING TO DO LIST:
@@ -53,7 +54,7 @@ Security when switching pages when not logged in or different user type.
 
 
 Accounts:
-Password for all: !Abc12345
+Password for all:  	
 
 captain@gmail.com
 tanod@gmail.com
@@ -62,3 +63,4 @@ admin@gmail.com
 systemadmin@gmail.com
 client@gmail.com
 
+    

@@ -149,6 +149,7 @@ function loginUser($conn, $email, $password){
 //---------------------------------------------------------------ANNOUNCEMENTS--------------------------------------------------------------// 
 
 // saving announcement in the database
+use Twilio\Rest\Client;
 
 function realAnnounce($conn, $announce){
   session_start();
@@ -166,9 +167,6 @@ function realAnnounce($conn, $announce){
   $stmt->bind_param("ss", $announce, $today);
   $stmt->execute();
 
-  // smsApi($conn);
-  
-
   $trail_user = $_SESSION["full_name"];
   $trail_utype = $_SESSION["user_type"];
   $trail_ip = $_SERVER['REMOTE_ADDR'];
@@ -176,8 +174,40 @@ function realAnnounce($conn, $announce){
   $trail_date = date('Y-m-d H:i:s');
   $trail_time = date("H:i:sa");
 
-  recordTrail($conn, $trail_user, $trail_utype, $trail_ip, $trail_action, $trail_date, $trail_time);
+  // RECORDING ACTIONS TO ACTIVITY LOG
+  recordTrail($conn, $trail_user, $trail_utype, $trail_ip, $trail_action, $trail_date, $trail_time);  
 
+  $sql1 = "SELECT * FROM announcements ORDER BY ID DESC LIMIT 1";
+  $stmt1 = $conn->query($sql1); 
+  $row1 = $stmt1->fetch_assoc();
+  $announcement = $row1['announce'];
+
+  $sql2 = "SELECT `full_name`, `user_contact` FROM `users`";
+  $stmt2 = $conn->query($sql2);
+
+
+  //SMS API TESTING    
+  require_once '../twilio-php-main/twilio-php-main/src/Twilio/autoload.php';
+  $account_sid = 'AC704ac97bf21aead8489c67585ce1349b';
+  $auth_token = '1492c725bcb1aa37dade85419ead02c5';
+  $twilio_number = "+17752566122";
+  $client = new Client($account_sid, $auth_token);
+
+    while ($row2 = $stmt2->fetch_assoc()):    
+      $user = $row2['full_name'];
+      $userNumber = $row2['user_contact'];
+
+      $client->messages->create(
+          // Where to send a text message (your cell phone?)
+          $userNumber,
+          array(
+              'from' => $twilio_number,
+              'body' => "Good Day Ma'am/Sir ".$user.' -- '.$announcement
+          )
+      );
+    endwhile; 
+
+    
     echo '
     <script>
     alert("Announcement Sent!") 
@@ -187,44 +217,6 @@ function realAnnounce($conn, $announce){
 }
 
 
-// function smsApi($conn){
-
-// $ch = curl_init();
-
-// $sql = "SELECT * FROM announcements ORDER BY ID DESC LIMIT 1";
-// $stmt = $conn->query($sql);
-// $announcement = $stmt;
-
-// $sql1 = "SELECT `full_name`, `user_contact` FROM `users`";
-// $stmt1 = $conn->query($sql1);        
-
-
-//         while ($row = $stmt1->fetch_assoc()):                                                                                
-//             $number = $row['user_contact'];
-//             $name = $row['full_name'];        
-
-//             $parameters = array(
-//                 'apikey' => 'e496683564f28d41f717b1744f976b89', //Your API KEY
-//                 'number' => $number,
-//                 'message' => $stmt,
-//                 'sendername' => 'BARANGAY SINGKOTRES'
-//             );
-//             curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
-//             curl_setopt( $ch, CURLOPT_POST, 1 );
-            
-//             //Send the parameters set above with the request
-//             curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
-            
-//             // Receive response from server
-//             curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-//             $output = curl_exec( $ch );
-//             curl_close ($ch);
-            
-//             //Show the server response
-//             echo $output;
-
-//         endwhile;   
-// }
 
 
 function smsApi($conn){

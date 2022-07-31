@@ -130,7 +130,9 @@ $result = $conn->query($sql);
                                 <div class="col">                              
                                 <button class="btn btn-primary modal-dismiss" type="button" data-bs-dismiss="modal"><i class="fa fa-times"></i><span></span></button></div>                                
                                 <h2 class="text-uppercase modal-heading">login</h2>
-                                <p class="item-intro" href="#modal-forgetpass" data-bs-toggle="modal" data-bs-dismiss="modal">forget password?</p> 
+                                <br>
+                                <!-- FORGET PASSWORD BUTTON  -->
+                                <!-- <p class="item-intro" href="#modal-forgetpass" data-bs-toggle="modal" data-bs-dismiss="modal">forget password?</p>  -->
 
                                 <form action="includes/login.php" method="post">
                                     <input type="email" required id="email" name="email" class="login" placeholder="Email">

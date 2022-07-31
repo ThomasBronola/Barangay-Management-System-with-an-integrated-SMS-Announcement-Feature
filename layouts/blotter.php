@@ -247,6 +247,10 @@
                 </div>
             </div>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        
+        <?php 
+            include_once '../HF/footer.php';
+        ?>
     </div>
 
 
@@ -279,9 +283,10 @@
                     <div><br></div>
                 </div>
         </div>
-    </div>
+    </div>    
 </div>
 </form>
+
 
     <script src="../adminAssets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../adminAssets/js/chart.min.js"></script>
@@ -309,9 +314,7 @@
         });
     </script>
 
-<?php 
-    include_once '../HF/footer.php';
-?>
+
 
 
 </body>

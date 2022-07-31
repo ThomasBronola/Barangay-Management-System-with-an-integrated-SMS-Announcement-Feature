@@ -44,7 +44,7 @@ include_once '../HF/adminNavigations.php';
                                         <form class="user" action="../includes/signup.php" method="post">
                                             <div class="row mb-3">
                                                 <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" required autofocus type="text" id="full_name" placeholder="Full Name" name="fullname"></div>
-                                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" required type="tel" placeholder="Contact Number (09xxxxxxxxx)" maxlength = "11" name="user_contact"></div>
+                                                <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" required type="tel" placeholder="Contact Number (+63xxxxxxxxxX)" minlength="13" maxlength = "13" name="user_contact"></div>
                                             </div>
                                             <div class="mb-3"><input class="form-control form-control-user" required type="email" id="email" aria-describedby="emailHelp" placeholder="Email Address" name="email"></div>
                                             <div class="mb-3">

@@ -2,6 +2,7 @@
 <?php
 
 require_once 'database.php';
+use Twilio\Rest\Client;
 
 // Cannot jump to certain pages without signing up
 if(isset($_POST["registerButton"])){
@@ -17,6 +18,7 @@ if(isset($_POST["registerButton"])){
     $lowercase = preg_match('@[a-z]@', $password);
     $number    = preg_match('@[0-9]@', $password);
     $specialChars = preg_match('@[^\w]@', $password);
+    $contactVerify = '+63';
 
     require_once 'functions.php'; //FOR ERROR FUNCTIONS
 
@@ -43,15 +45,23 @@ if(isset($_POST["registerButton"])){
         </script>
         ';
     }
+    elseif (empty($contact) || substr($contact, 0, 3 ) !== '+63' ) {
+        echo '
+        <script>
+        alert ("Contact Number must begin with +63.")
+        history.back();
+        </script>
+        ';    
+    }
     elseif (empty($email) || empty($fullname) || empty($password) || empty($password2)) {
         echo '
         <script>
         alert ("Must Fill Up Empty Fields.")
         history.back();
         </script>
-        ';
-
+        ';    
     }
+
     elseif(empty($usertype)) {
         echo '
         <script>
@@ -61,8 +71,23 @@ if(isset($_POST["registerButton"])){
         ';
     }
     else{
-        // THIS IS WHERE REGISTERING HAPPENS   
-        createUser($conn, $usertype, $email, $fullname, $password, $contact);    
+        
+        // FOR ADDING A VERIFIED CALLER ID/CONTACT NUMBER FOR THE API
+        
+        
+        // require_once '../twilio-php-main/twilio-php-main/src/Twilio/autoload.php';
+        // $sid = "AC704ac97bf21aead8489c67585ce1349b";
+        // $token = "1492c725bcb1aa37dade85419ead02c5";
+        // $twilio = new Client($sid, $token);     
+
+        // $validation_request = $twilio->validationRequests
+        //                             ->create($contact, // phoneNumber
+        //                                     ["friendlyName" => $fullname]
+        //                             );
+
+
+        // THIS IS WHERE REGISTERING HAPPENS                  
+        createUser($conn, $usertype, $email, $fullname, $password, $contact); 
     }
     
 
