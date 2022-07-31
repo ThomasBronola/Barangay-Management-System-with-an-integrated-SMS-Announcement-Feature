@@ -185,15 +185,19 @@ function realAnnounce($conn, $announce){
   $sql2 = "SELECT `full_name`, `user_contact` FROM `users`";
   $stmt2 = $conn->query($sql2);
 
+  $sql3 = "SELECT * FROM `sms`";
+  $stmt3 = $conn->query($sql3);
+  $row3 = $stmt1->fetch_assoc();
+  $auth = $row3['auth'];
 
 
 
   //SMS API TESTING    
   require_once '../twilio-php-main/twilio-php-main/src/Twilio/autoload.php';
   $account_sid = 'ACd6c0d5cf6d9fb0166f4d8b927563a03d';
-  $auth_token = 'bd3a5573ee7d12a068957c911834dd56';
+  $auth_token = $auth;
   $twilio_number = "+13082808881";
-  $client = new Client($account_sid, $auth_token);
+  $client = new Client($account_sid, $auth_token); 
 
     while ($row2 = $stmt2->fetch_assoc()):    
       $user = $row2['full_name'];
