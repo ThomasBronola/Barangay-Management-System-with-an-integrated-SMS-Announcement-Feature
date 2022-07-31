@@ -187,7 +187,7 @@ function realAnnounce($conn, $announce){
 
   $sql3 = "SELECT * FROM `sms`";
   $stmt3 = $conn->query($sql3);
-  $row3 = $stmt1->fetch_assoc();
+  $row3 = $stmt3->fetch_assoc();
   $auth = $row3['auth'];
 
 
