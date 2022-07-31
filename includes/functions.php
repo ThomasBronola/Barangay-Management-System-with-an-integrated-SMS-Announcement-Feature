@@ -186,27 +186,29 @@ function realAnnounce($conn, $announce){
   $stmt2 = $conn->query($sql2);
 
 
+
+
   //SMS API TESTING    
   require_once '../twilio-php-main/twilio-php-main/src/Twilio/autoload.php';
-  $account_sid = 'AC704ac97bf21aead8489c67585ce1349b';
-  $auth_token = '1492c725bcb1aa37dade85419ead02c5';
-  $twilio_number = "+17752566122";
+  $account_sid = 'ACd6c0d5cf6d9fb0166f4d8b927563a03d';
+  $auth_token = 'bd3a5573ee7d12a068957c911834dd56';
+  $twilio_number = "+13082808881";
   $client = new Client($account_sid, $auth_token);
 
     while ($row2 = $stmt2->fetch_assoc()):    
       $user = $row2['full_name'];
       $userNumber = $row2['user_contact'];
+      // $send = "Good Day Ma'am/Sir ".$user.' -- '.$announcement;
 
       $client->messages->create(
           // Where to send a text message (your cell phone?)
           $userNumber,
           array(
               'from' => $twilio_number,
-              'body' => "Good Day Ma'am/Sir ".$user.' -- '.$announcement
+              'body' => $announcement
           )
       );
     endwhile; 
-
     
     echo '
     <script>

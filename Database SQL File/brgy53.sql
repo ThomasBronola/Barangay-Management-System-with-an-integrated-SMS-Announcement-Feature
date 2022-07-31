@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2022 at 06:20 AM
+-- Generation Time: Jul 31, 2022 at 08:23 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -42,10 +42,10 @@ CREATE TABLE `activity_log` (
 --
 
 INSERT INTO `activity_log` (`trail_id`, `trail_user`, `trail_utype`, `trail_ip`, `trail_action`, `trail_date`, `trail_time`) VALUES
-(1, 'Thomas Broñola', 'systemadmin', '::1', 'Deleted a user profile', '2022-07-27 17:07:00', '17:07:00pm'),
-(2, 'Thomas Broñola', 'systemadmin', '::1', 'Deleted a user profile', '2022-07-27 17:07:33', '17:07:33pm'),
-(3, 'Thomas Broñola', 'systemadmin', '::1', 'Logged Out', '2022-07-27 17:16:31', '17:16:31pm'),
-(4, 'Thomas Broñola', 'systemadmin', '::1', 'Logged In', '2022-07-27 17:17:14', '17:17:14pm');
+(1, 'Thomas Broñola', 'systemadmin', '::1', 'Logged In', '2022-07-31 08:11:54', '08:11:54am'),
+(2, 'Thomas Broñola', 'systemadmin', '::1', 'Sent an Announcement', '2022-07-31 08:12:52', '08:12:52am'),
+(3, 'Thomas Broñola', 'systemadmin', '::1', 'Sent an Announcement', '2022-07-31 08:13:30', '08:13:30am'),
+(4, 'Thomas Broñola', 'systemadmin', '::1', 'Sent an Announcement', '2022-07-31 08:23:12', '08:23:12am');
 
 -- --------------------------------------------------------
 
@@ -58,6 +58,15 @@ CREATE TABLE `announcements` (
   `announce` mediumtext NOT NULL,
   `announcement_date` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `announcements`
+--
+
+INSERT INTO `announcements` (`id`, `announce`, `announcement_date`) VALUES
+(1, 'Announcement!\r\n\r\nBarangay Singko Tres now has a working management system with an SMS API!\r\nThank you and have a good day!', '07/31/2022'),
+(2, 'Announcement!\r\n\r\nBarangay Singko Tres now has a working management system with an SMS API!\r\nThank you and have a good day!', '07/31/2022'),
+(3, 'Announcement!\r\n\r\nBarangay Singko Tres now has a working management system with an SMS API!\r\nThank you and have a good day!', '07/31/2022');
 
 -- --------------------------------------------------------
 
@@ -154,7 +163,7 @@ ALTER TABLE `activity_log`
 -- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
-  MODIFY `id` int(128) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `blotter`

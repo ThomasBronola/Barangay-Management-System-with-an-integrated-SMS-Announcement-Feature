@@ -47,13 +47,13 @@ $result = $conn->query($sql);
         while($row = $result->fetch_assoc()) {
           echo ' 
           <header class="masthead bg-dark" id="announcements">
-              <div>   <!-- class="container" -->
+              <div class="container">  
               <br> <br><br>
-              <h1 class="intro-heading text-uppercase color-light tanod-announcement"  id="announcement-header"> ANNOUNCEMENT! </h1>  
+              <h1 class="intro-heading text-uppercase color-light tanod-announcement"  id="announcement-header"> ANNOUNCEMENT! </h1>                  
                   <div class="intro-text">
                                              
-                          <div>                    
-                              <textarea readonly id="txtArea-announcements" rows="30" cols="90"> '.$row["announce"].'</textarea>
+                          <div>                                            
+                              <textarea readonly id="txtArea-announcements" rows="20" cols="50"> '.$row["announce"].'</textarea>
                           </div>
                        
                   </div>
@@ -66,12 +66,12 @@ $result = $conn->query($sql);
         echo 
         ' 
             <header class="masthead bg-dark" id="announcements">
-                <div>   <!-- class="container" -->
+                <div class="container">   <!-- class="container" -->
                 <br> <br><br>
                 <h1 class="intro-heading text-uppercase color-light tanod-announcement"  id="announcement-header"> ANNOUNCEMENT! </h1>  
                     <div class="intro-text">
                                                 
-                            <div>                    
+                            <div>                                                
                                 <textarea readonly id="txtArea-announcements" rows="30" cols="90">No Announcements Made</textarea>
                             </div>
                         

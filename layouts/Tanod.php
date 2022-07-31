@@ -54,7 +54,7 @@ $result = $conn->query($sql);
         while($row = $result->fetch_assoc()) {
           echo ' 
           <header class="masthead bg-dark" id="announcements">
-              <div>   <!-- class="container" -->
+              <div class="container">   <!-- class="container" -->
               <br> <br><br>
               <h1 class="intro-heading text-uppercase color-light tanod-announcement"  id="announcement-header"> ANNOUNCEMENT! </h1>  
                   <div class="intro-text">
@@ -71,7 +71,7 @@ $result = $conn->query($sql);
       }  else 
       echo ' 
       <header class="masthead bg-dark" id="announcements">
-          <div>   <!-- class="container" -->
+          <div class="container">   <!-- class="container" -->
           <br> <br><br>
           <h1 class="intro-heading text-uppercase color-light tanod-announcement"  id="announcement-header"> ANNOUNCEMENT! </h1>  
               <div class="intro-text">

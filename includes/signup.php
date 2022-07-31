@@ -76,8 +76,8 @@ if(isset($_POST["registerButton"])){
         
         
         // require_once '../twilio-php-main/twilio-php-main/src/Twilio/autoload.php';
-        // $sid = "AC704ac97bf21aead8489c67585ce1349b";
-        // $token = "1492c725bcb1aa37dade85419ead02c5";
+        // $sid = "AC5d352da0c59845cffa191f075fe0bc92";
+        // $token = "e6dd8c207e49f658e138d33ec09c9f23";
         // $twilio = new Client($sid, $token);     
 
         // $validation_request = $twilio->validationRequests
