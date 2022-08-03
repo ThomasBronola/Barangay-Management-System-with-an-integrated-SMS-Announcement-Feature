@@ -4,7 +4,8 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto text-uppercase">
                 <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
-                <li class="nav-item"><a class="nav-link" href="layouts/about.php">Officials</a></li>                <li class="nav-item"><a class="nav-link" href="#modal-login" data-bs-toggle="modal">LOGIN</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="layouts/about.php">Officials</a></li>                 -->
+                <li class="nav-item"><a class="nav-link" href="#modal-login" data-bs-toggle="modal">LOGIN</a></li>
             </ul>
         </div>
     </div>

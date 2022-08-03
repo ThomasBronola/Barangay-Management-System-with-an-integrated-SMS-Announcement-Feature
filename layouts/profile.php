@@ -211,7 +211,8 @@ $stmt = $conn->query($sql);
 
 
                             <!-- PAGES -->
-                            <div class="row">                                
+                            <div class="row"> 
+                                                               
                                 <div class="col-md-6" style="margin-top:5px;">
                                     <?php
                                         $pr_query = "SELECT * FROM `users`";

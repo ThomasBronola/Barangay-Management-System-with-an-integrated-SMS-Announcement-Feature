@@ -151,6 +151,79 @@ function loginUser($conn, $email, $password){
 // saving announcement in the database
 use Twilio\Rest\Client;
 
+function sendSms($conn, $announce){
+  session_start();
+
+  $sql = "INSERT INTO sms_archive (`message`, `message_date`) VALUES (?,?);";
+  if(!$stmt = $conn->prepare($sql)){
+      echo '
+      <script>
+      alert("Something went wrong. Please try again.")
+      history.back()
+      </script>';
+  }
+
+  if(!$stmt = $conn->prepare($sql)){
+      echo '
+      <script>
+      alert("Something went wrong. Please try again.")
+      history.back()
+      </script>';
+  }
+
+  $today = date("m/d/Y");
+
+  $stmt->bind_param("ss", $announce, $today);
+  $stmt->execute();
+
+  $trail_user = $_SESSION["full_name"];
+  $trail_utype = $_SESSION["user_type"];
+  $trail_ip = $_SERVER['REMOTE_ADDR'];
+  $trail_action = "Sent an SMS";
+  $trail_date = date('Y-m-d H:i:s');
+  $trail_time = date("H:i:sa");
+
+  // RECORDING ACTIONS TO ACTIVITY LOG
+  recordTrail($conn, $trail_user, $trail_utype, $trail_ip, $trail_action, $trail_date, $trail_time);  
+
+  $sql2 = "SELECT `full_name`, `user_contact` FROM `users`";
+  $stmt2 = $conn->query($sql2);
+
+  $sql3 = "SELECT * FROM `sms`";
+  $stmt3 = $conn->query($sql3);
+  $row3 = $stmt3->fetch_assoc();
+  $auth = $row3['auth'];
+
+  //SMS API TESTING    
+  require_once '../twilio-php-main/twilio-php-main/src/Twilio/autoload.php';
+  $account_sid = $row3['sid'];
+  $auth_token = $auth;
+  $twilio_number = $row3['phone'];
+  $client = new Client($account_sid, $auth_token); 
+
+    while ($row2 = $stmt2->fetch_assoc()):    
+      $user = $row2['full_name'];
+      $userNumber = $row2['user_contact'];
+      // $send = "Good Day Ma'am/Sir ".$user.' -- '.$announcement;
+
+      $client->messages->create(
+          // Where to send a text message (your cell phone?)
+          $userNumber,
+          array(
+              'from' => $twilio_number,
+              'body' => $announce
+          )
+      );
+    endwhile; 
+    
+    echo '
+    <script>
+    alert("Message Sent!") 
+    location.replace("../layouts/sms.php")
+    </script>';       
+}
+
+
 function realAnnounce($conn, $announce){
   session_start();
   $sql = "INSERT INTO announcements (announce, announcement_date) VALUES (?,?);";
@@ -471,6 +544,43 @@ function recordTrail($conn, $trail_user, $trail_utype, $trail_ip, $trail_action,
   mysqli_stmt_close($stmt);
 }
 
+
+// NEW AUTH TOKEN FOR SMS
+
+function newAuth($conn, $Auth, $Sid, $Phone){
+
+  session_start();
+  $sql = "UPDATE `sms` SET `auth` = ?, `sid` = ?, `phone` = ? WHERE `sms`.`id` = ?";
+  if(!$stmt = $conn->prepare($sql)){
+      echo '
+      <script>
+      alert("Something went wrong. Please try again.")
+      history.back()
+      </script>';
+  }
+
+  // $newauth = strval($Auth);
+  $authId = 1;
+  $stmt->bind_param("ssss", $Auth, $Sid, $Phone, $authId);
+  $stmt->execute();
+
+
+
+  $trail_user = $_SESSION["full_name"];
+  $trail_utype = $_SESSION["user_type"];
+  $trail_ip = $_SERVER['REMOTE_ADDR'];
+  $trail_action = "Updated Sms Api Tokens";
+  $trail_date = date('Y-m-d H:i:s');
+  $trail_time = date("H:i:sa");
+  
+  recordTrail($conn, $trail_user, $trail_utype, $trail_ip, $trail_action, $trail_date, $trail_time);
+
+    echo '
+    <script>
+    alert("Api Tokens Updated!") 
+    location.replace("../layouts/sms-auth.php")
+    </script>';  
+}
 
 
 ?>

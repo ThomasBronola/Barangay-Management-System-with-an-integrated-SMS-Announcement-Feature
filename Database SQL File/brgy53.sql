@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2022 at 08:23 AM
+-- Generation Time: Aug 03, 2022 at 05:04 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -37,16 +37,6 @@ CREATE TABLE `activity_log` (
   `trail_time` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `activity_log`
---
-
-INSERT INTO `activity_log` (`trail_id`, `trail_user`, `trail_utype`, `trail_ip`, `trail_action`, `trail_date`, `trail_time`) VALUES
-(1, 'Thomas Broñola', 'systemadmin', '::1', 'Logged In', '2022-07-31 08:11:54', '08:11:54am'),
-(2, 'Thomas Broñola', 'systemadmin', '::1', 'Sent an Announcement', '2022-07-31 08:12:52', '08:12:52am'),
-(3, 'Thomas Broñola', 'systemadmin', '::1', 'Sent an Announcement', '2022-07-31 08:13:30', '08:13:30am'),
-(4, 'Thomas Broñola', 'systemadmin', '::1', 'Sent an Announcement', '2022-07-31 08:23:12', '08:23:12am');
-
 -- --------------------------------------------------------
 
 --
@@ -58,15 +48,6 @@ CREATE TABLE `announcements` (
   `announce` mediumtext NOT NULL,
   `announcement_date` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `announcements`
---
-
-INSERT INTO `announcements` (`id`, `announce`, `announcement_date`) VALUES
-(1, 'Announcement!\r\n\r\nBarangay Singko Tres now has a working management system with an SMS API!\r\nThank you and have a good day!', '07/31/2022'),
-(2, 'Announcement!\r\n\r\nBarangay Singko Tres now has a working management system with an SMS API!\r\nThank you and have a good day!', '07/31/2022'),
-(3, 'Announcement!\r\n\r\nBarangay Singko Tres now has a working management system with an SMS API!\r\nThank you and have a good day!', '07/31/2022');
 
 -- --------------------------------------------------------
 
@@ -96,6 +77,37 @@ INSERT INTO `blotter` (`id`, `reported_date`, `complainant`, `defendant`, `repor
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sms`
+--
+
+CREATE TABLE `sms` (
+  `id` int(11) NOT NULL,
+  `auth` varchar(128) NOT NULL,
+  `sid` varchar(128) NOT NULL,
+  `phone` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sms`
+--
+
+INSERT INTO `sms` (`id`, `auth`, `sid`, `phone`) VALUES
+(1, '78a43a12413982c241e3a33b4e118306', 'ACd6c0d5cf6d9fb0166f4d8b927563a03d', '+13082808881');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sms_archive`
+--
+
+CREATE TABLE `sms_archive` (
+  `message` mediumtext NOT NULL,
+  `message_date` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -114,12 +126,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `email`, `user_password`, `user_type`, `full_name`, `user_contact`) VALUES
 (1, 'bronolathomas@gmail.com', '$2y$10$MTYBqd/.Kwu8EXuGz904SeyAXoePpXfwLRgtPrAAwtGvnkGQnpLwq', 'systemadmin', 'Thomas Broñola', '+639475892286'),
-(2, 'jhonberniedevega@gmail.com', '$2y$10$TyzVNXv0svWyYjTj0acxROBNmX0OSABFTdjzkJ5Atfuckmzx8o2j2', 'systemadmin', 'Jhon Bernie', '+639154273628'),
-(4, 'captain@gmail.com', '$2y$10$VsX52c72vYGMy39y/QlZkuVlTvAOKA1GXPYTV7cyK3Ec70AsA1UaO', 'captain', 'captain', '+639154273628'),
-(5, 'secretary@gmail.com', '$2y$10$wnL4bl6NxALSxokSWNkRVunPaoF3UAeZ8pgx4nKHTZWDzrx85RRm.', 'secretary', 'secretary', '+639154273628'),
-(6, 'tanod@gmail.com', '$2y$10$xx24FhQzhi2.7GS2jywdluqIy7/LiShgn9e9cZVfa.7z3WhgeHKLq', 'tanod', 'tanod', '+639154273628'),
-(7, 'admin@gmail.com', '$2y$10$ybdT9s7zANUpFgY3eIYMLeiYDy03sYq5SIKm.Ia3lajygobCF7JDe', 'admin', 'admin', '+639154273628'),
-(8, 'systemadmin@gmail.com', '$2y$10$YRle7HuuQmpGi.hod5KeKe3rgYsYPxFSXipFdBLFmhXQsUs5qU4Ve', 'systemadmin', 'systemadmin', '+639154273628');
+(11, 'jhonberniedevega@gmail.com', '$2y$10$/kovUtmqA7QaeOCXSNTrDeap2kMJXEL07P3PPCCcZPSdyDjf5PTMW', 'systemadmin', 'Jhon Bernie De Vega', '+639154273628');
 
 --
 -- Indexes for dumped tables
@@ -144,6 +151,12 @@ ALTER TABLE `blotter`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sms`
+--
+ALTER TABLE `sms`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -157,13 +170,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `trail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `trail_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
-  MODIFY `id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(128) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `blotter`
@@ -172,10 +185,16 @@ ALTER TABLE `blotter`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `sms`
+--
+ALTER TABLE `sms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
