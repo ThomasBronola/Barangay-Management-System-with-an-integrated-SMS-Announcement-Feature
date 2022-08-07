@@ -13,6 +13,7 @@ if(isset($_POST["registerButton"])){
     $password2 = $_POST["confirm-password"];
     $usertype = $_POST["usertypeSELECT"];
     $contact = $_POST["user_contact"];
+    $address = $_POST["address"];
 
     $uppercase = preg_match('@[A-Z]@', $password);
     $lowercase = preg_match('@[a-z]@', $password);
@@ -87,7 +88,7 @@ if(isset($_POST["registerButton"])){
 
 
         // THIS IS WHERE REGISTERING HAPPENS                  
-        createUser($conn, $usertype, $email, $fullname, $password, $contact); 
+        createUser($conn, $usertype, $email, $fullname, $password, $contact, $address); 
     }
     
 

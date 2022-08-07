@@ -43,7 +43,7 @@
                         <li class="nav-item"><a class="nav-link" href="blotter.php"><i class="fa fa-folder-open"></i><span>Blotter Report</span></a></li>
                         <li class="nav-item"><a class="nav-link" href="announcement.php"><i class="fa fa-bullhorn"></i><span>Announcements</span></a></li>
                         <li class="nav-item"><a class="nav-link" href="sms.php"><i class="fa fa-bullhorn"></i><span>SMS Center</span></a></li>
-                        <li class="nav-item"><a class="nav-link" href="sms-auth.php"><i class="fa fa-bullhorn"></i><span>Change SMS Auth Token</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="sms-auth.php"><i class="fa fa-bullhorn"></i><span>Sms Api Parameters</span></a></li>
                         <li class="nav-item"><a class="nav-link" href="../includes/logout.php"><i class="fas fa-user"></i><span>Logout</span></a></li>';    
 
                     }

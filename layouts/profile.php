@@ -51,7 +51,7 @@ $stmt = $conn->query($sql);
                                 </div>
                                 <div class="col-md-6">
                                     <div class="text-md-end dataTables_filter" id="dataTable_filter"><label class="form-label">
-                                        <input type="search" id="profile-search" autofocus class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+                                        <input type="text" id="profile-search" autofocus class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
                                 </div>
                             </div>
     
@@ -63,9 +63,10 @@ $stmt = $conn->query($sql);
                                         <tr>
                                             <th>User ID</th>
                                             <th>Full Name</th>                                             
-                                            <th>Email Address</th>
-                                            <th>User Type</th>     
+                                            <th>Email Address</th>  
+                                            <th>Address</th>                                                 
                                             <th>Contact Number</th>                                                                                  
+                                            <th class="text-center">Documents</th>
                                             <th colspan="2" class="text-center">Action</th>                                                                                                               
                                         </tr>
                                     </thead>
@@ -79,8 +80,155 @@ $stmt = $conn->query($sql);
                                                     <td><?php echo $row['user_id']; ?></td>
                                                     <td><?php echo $row['full_name']; ?></td>
                                                     <td><?php echo $row['email']; ?></td>
-                                                    <td><?php echo $row['user_type']; ?></td>
+                                                    <td><?php echo $row['user_address']; ?></td>
                                                     <td><?php echo $row['user_contact']; ?></td>
+                                                    
+                                                    <td>                                                        
+                                                        <a class="fw-bold btn btn-warning btn-sm d-none d-sm-inline-block" role="button" id="clickUpdate" data-bs-toggle="modal" href="#modal-documents<?php echo $row['user_id'];?>"><i class="fw-bold far fa-clipboard fa-sm text-warning-50"></i> Documents & Certificates</a>                                                                                                        
+                                                        <!-- DOCUMENTS MODAL -->
+                                                        <div role="dialog" tabindex="-1" class="modal fade text-start portfolio-modal" id="modal-documents<?php echo $row['user_id'];?>">
+                                                            <div class="modal-dialog modal-lg modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <h3 class="text-center text-dark mb-4" style="margin-top: 18px;"><strong>User Documents</strong></h3>
+                                                                    <div class="row mb-3 text-center">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-12 col-xl-12">
+                                                                                    <div class="card shadow mb-3">
+                                                                                        <div class="card-header py-3">                                                                                                                                                                                       
+                                                                                            <div class="row">
+                                                                                                <div class="col">
+                                                                                                    <p class="form-label text-dark" for="first_name"><strong>Name: </strong> <?php echo $row['full_name']; ?></label>
+                                                                                                </div>
+                                                                                                <div class="col">
+                                                                                                    <p class="form-label text-dark" for="user_contact"><strong>Address: </strong> <?php echo $row['user_address']; ?></label>
+                                                                                                </div>
+                                                                                                <div class="col">
+                                                                                                    <p class="form-label text-dark" for="user_contact"><strong>Contact Number: </strong> <?php echo $row['user_contact']; ?></label>
+                                                                                                </div>
+                                                                                            </div>                                                                                       
+                                                                                        </div>
+                                                                                        
+                                                                                        <div class="card-body">
+                                                                                            <form action="../includes/upload-download.php" method="post" enctype="multipart/form-data">  
+
+                                                                                                <input hidden name="user_id" value="<?php echo $row['user_id']; ?>">                                                                                              
+                                                                                                <div class="row">
+                                                                                                    <div class="col" style="border-right:solid;">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label class="form-label text-dark" for="first_name"><strong>Barangay Clearance</strong></label>
+                                                                                                            <input type="file" class="form-control text-dark" name="FILE1"/>
+                                                                                                            <br>
+
+                                                                                                            <?php
+                                                                                                            $user_id = $row['user_id'];
+                                                                                                            $sqlfile = "SELECT * FROM files_db WHERE files_user_id = $user_id AND files_activity = 'FILE1'";
+                                                                                                            $resultfile = mysqli_query($conn, $sqlfile);
+
+                                                                                                                if(mysqli_num_rows($resultfile)>0){
+                                                                                                                    $rowfile=mysqli_fetch_assoc($resultfile);
+                                                                                                                    echo '<div style="height:77px; width:200px; overflow: hidden;"> <small class=" text-center form-label text-dark text-sm">'.$rowfile['files_name'].'</small> </div>';       
+                                                                                                                    echo
+                                                                                                                    '
+                                                                                                                    <button class="btn btn-success btn-sm text-light fw-bold" name="uploadClearance" role="button" type="submit"><i class="fw-bold far fa-upload fa-sm text-white-50"></i> Upload</button>              
+                                                                                                                    <button class="btn btn-primary btn-sm text-light fw-bold" name="downloadClearance" role="button" type="submit"><i class="fw-bold far fa-download fa-sm text-white-50"></i> Download</button>                                                                                                                                                                                            
+                                                                                                                    <button class="btn btn-danger btn-sm text-light fw-bold" name="deleteClearance" role="button" type="submit"><i class="fw-bold far fa-close fa-sm text-white-50"></i> Delete</button>                                                                                                                                                                                                                                                                                                        
+                                                                                                                    ';                                                                                                                                                                                                                            
+                                                                                                                }    
+                                                                                                                else{
+                                                                                                                    echo
+                                                                                                                    '
+                                                                                                                    <button class="btn btn-success btn-sm text-light fw-bold" name="uploadClearance" role="button" type="submit"><i class="fw-bold far fa-upload fa-sm text-white-50"></i> Upload</button>              
+                                                                                                                    ';
+                                                                                                                }                                                                                                        
+                                                                                                            ?>
+                                                                                                
+                                                                                                            
+                                                                                                        </div>
+                                                                                                    </div>    
+                                                                                                    
+                                                                                                    
+                                                                                                    <div class="col" style="border-right:solid;">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label class="form-label text-dark" for="password"><strong>Certificate of Residency</strong></label>
+                                                                                                            <input type="file" class="form-control text-dark" name="FILE2"/>
+                                                                                                            <br>
+
+                                                                                                            <?php
+                                                                                                            $user_id = $row['user_id'];
+                                                                                                            $sqlfile = "SELECT * FROM files_db WHERE files_user_id = $user_id AND files_activity = 'FILE2'";
+                                                                                                            $resultfile = mysqli_query($conn, $sqlfile);
+
+                                                                                                                if(mysqli_num_rows($resultfile)>0){
+                                                                                                                    $rowfile=mysqli_fetch_assoc($resultfile);
+                                                                                                                    echo '<div style="height:77px; width:200px; overflow: hidden;"> <small class="text-center form-label text-dark text-sm">'.$rowfile['files_name'].'</small> </div>';       
+                                                                                                                    echo 
+                                                                                                                    '
+                                                                                                                        <button class="btn btn-success btn-sm text-light fw-bold" name="uploadResidency" role="button" type="submit"><i class="fw-bold far fa-upload fa-sm text-white-50"></i> Upload</button>                                                                                                             
+                                                                                                                        <button class="btn btn-primary btn-sm text-light fw-bold" name="downloadResidency" role="button" type="submit"><i class="fw-bold far fa-download fa-sm text-white-50"></i> Download</button>
+                                                                                                                        <button class="btn btn-danger btn-sm text-light fw-bold" name="deleteResidency" role="button" type="submit"><i class="fw-bold far fa-close fa-sm text-white-50"></i> Delete</button>                                                                                                                                                                                            
+                                                                                                                    ';                                                                                                                    
+                                                                                                                }  
+                                                                                                                else{
+                                                                                                                    echo
+                                                                                                                    '
+                                                                                                                        <button class="btn btn-success btn-sm text-light fw-bold" name="uploadResidency" role="button" type="submit"><i class="fw-bold far fa-upload fa-sm text-white-50"></i> Upload</button>                                                                                                             
+                                                                                                                    ';
+                                                                                                                }                                                                                                          
+                                                                                                            ?>
+                                                                                                        </div>
+                                                                                                    </div>
+
+
+
+                                                                                                    <div class="col">
+                                                                                                        <div class="mb-3">
+                                                                                                            <label class="form-label text-dark" for="first_name"><strong>Certificate of Indigency</strong></label>
+                                                                                                            <input type="file" class="form-control text-dark" name="FILE3"/>                                                                                                           
+                                                                                                            <br>
+
+                                                                                                            <?php
+                                                                                                            $user_id = $row['user_id'];
+                                                                                                            $sqlfile = "SELECT * FROM files_db WHERE files_user_id = $user_id AND files_activity = 'FILE3'";
+                                                                                                            $resultfile = mysqli_query($conn, $sqlfile);
+
+                                                                                                                if(mysqli_num_rows($resultfile)>0){
+                                                                                                                    $rowfile=mysqli_fetch_assoc($resultfile);
+                                                                                                                    echo '<div style="height:77px; width:200px; overflow: hidden;"> <small class="text-center form-label text-dark text-sm">'.$rowfile['files_name'].'</small> </div>';       
+                                                                                                                    echo
+                                                                                                                    '
+                                                                                                                    <button class="btn btn-success btn-sm text-light fw-bold" name="uploadIndigency" role="button" type="submit"><i class="fw-bold far fa-upload fa-sm text-white-50"></i> Upload</button>                                                                                                             
+                                                                                                                    <button class="btn btn-primary btn-sm text-light fw-bold" name="downloadIndigency" role="button" type="submit"><i class="fw-bold far fa-download fa-sm text-white-50"></i> Download</button>                                                                                                            
+                                                                                                                    <button class="btn btn-danger btn-sm text-light fw-bold" name="deleteIndigency" role="button" type="submit"><i class="fw-bold far fa-close fa-sm text-white-50"></i> Delete</button>
+                                                                                                                    ';                                                                                                               
+                                                                                                                }  
+                                                                                                                else{
+                                                                                                                    echo
+                                                                                                                    '
+                                                                                                                    <button class="btn btn-success btn-sm text-light fw-bold" name="uploadIndigency" role="button" type="submit"><i class="fw-bold far fa-upload fa-sm text-white-50"></i> Upload</button>                                                                                                             
+                                                                                                                    ';
+                                                                                                                }                                                                                                          
+                                                                                                            ?>
+
+                                                                                                                                                                                                                 
+                                                                                                        </div>
+                                                                                                    </div>
+                                   
+                                                                                                
+                                                                                                                                                                                                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="card shadow"></div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card shadow mb-5"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                    </td>
+                                                    
 
                                                     <td class="text-center">
                                                         <a class="fw-bold btn btn-primary btn-sm d-none d-sm-inline-block" role="button" id="clickUpdate" data-bs-toggle="modal" href="#modal-edit-user<?php echo $row['user_id'];?>"><i class="fw-bold far fa-edit fa-sm text-white-50"></i> Update User</a>                                                        
@@ -117,6 +265,12 @@ $stmt = $conn->query($sql);
                                                                                                         <div class="mb-3"><label class="form-label" for="password"><strong>Confirm Password</strong></label>
                                                                                                         <input type="password" required class="form-control" placeholder="Re-enter Password" name="confirm-edit-password" /></div>
                                                                                                     </div>
+                                                                                                </div>
+                                                                                                <div class="row">
+                                                                                                    <div class="col">
+                                                                                                        <div class="mb-3"><label class="form-label" for="password"><strong>Password</strong></label>
+                                                                                                        <input type="text" required class="form-control" placeholder="Address" name="edit-address" /></div>
+                                                                                                    </div>                                                                                                    
                                                                                                 </div>
                                                                                                 <div class="row">
                                                                                                     <div class="col">
@@ -195,9 +349,10 @@ $stmt = $conn->query($sql);
                                         <tr>
                                             <td><strong>User ID</strong></td>
                                             <td><strong>Full Name</strong></td>
-                                            <td><strong>Email Address</strong></td>
-                                            <td><strong>User Type</strong></td>
+                                            <td><strong>Email Address</strong></td>       
+                                            <td><strong>Address</strong></td>                                      
                                             <td><strong>Contact Number</strong></td>
+                                            <td class="text-center"><strong>Documents</strong></td>
                                             <td colspan="2" class="text-center"><strong>Action</strong></td>
                                         </tr>
                                     </tfoot>

@@ -6,7 +6,7 @@
       exit();
     } 
     elseif($_SESSION["user_type"] == "client"){
-      header("location: landing-page.php");
+      header("location: layouts/client.php");
       exit();
     }
     elseif($_SESSION["user_type"] == "tanod"){
@@ -15,6 +15,10 @@
     }
     elseif($_SESSION["user_type"] == "systemadmin"){
       header("location: layouts/SystemAdmin.php");
+      exit();
+    }
+    elseif($_SESSION["user_type"] == "landing"){
+      header("location: landing-page.php"); 
       exit();
     }
     elseif (empty($_SESSION["user_type"])){        

@@ -47,6 +47,7 @@ include_once '../HF/adminNavigations.php';
                                                 <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" required type="tel" placeholder="Contact Number (+63xxxxxxxxxX)" minlength="13" maxlength = "13" name="user_contact"></div>
                                             </div>
                                             <div class="mb-3"><input class="form-control form-control-user" required type="email" id="email" aria-describedby="emailHelp" placeholder="Email Address" name="email"></div>
+                                            <div class="mb-3"><input class="form-control form-control-user" required type="text" id="address" placeholder="Address" name="address"></div>
                                             <div class="mb-3">
                                                     <select class="text-center form-control form-control-user" name="usertypeSELECT" required>
                                                         <option disabled selected>--Select Usertype--</option>

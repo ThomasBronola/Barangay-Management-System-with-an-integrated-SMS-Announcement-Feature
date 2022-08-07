@@ -2,19 +2,18 @@
 require_once '../includes/database.php';
 //----------------------SIGN UP / REGISTER NEW USER FUNCTIONS ---------------------------------------//
 
-function createUser($conn, $usertype, $email, $fullname, $password, $contact){
+function createUser($conn, $usertype, $email, $fullname, $password, $contact, $address){
     session_start();
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO users (user_type, email, full_name, user_password, user_contact) VALUES (?,?,?,?,?);";
+    $sql = "INSERT INTO users (user_type, email, full_name, user_password, user_contact, user_address) VALUES (?,?,?,?,?,?);";
     if(!$stmt = $conn->prepare($sql)){
         echo '
         <script>
         alert("Something went wrong. Please try again.")
-        history.back()
         </script>';
     }
 
-    $stmt->bind_param("sssss", $usertype, $email, $fullname, $hashedPwd, $contact);
+    $stmt->bind_param("ssssss", $usertype, $email, $fullname, $hashedPwd, $contact, $address);
     $stmt->execute();
 
     $trail_user = $_SESSION["full_name"];
@@ -437,7 +436,7 @@ if(isset($_GET["delReport"])){
 
 
 // UPDATING USER 
-function updateUser($conn, $id, $fname, $user_password, $confirm_password, $contact, $u_type){
+function updateUser($conn, $id, $fname, $user_password, $confirm_password, $contact, $u_type, $address){
   
   if (empty( $_SESSION["user_type"]) || $_SESSION["user_type"] !== "admin" && $_SESSION["user_type"] !== "systemadmin"){
       header("location: ../index.php");
@@ -445,7 +444,7 @@ function updateUser($conn, $id, $fname, $user_password, $confirm_password, $cont
   }
 
   $hashedPwd = password_hash($user_password, PASSWORD_DEFAULT);
-  $sql = "UPDATE `users` SET `full_name` = ? , `user_password` = ?, `user_contact` = ?, `user_type` = ?  WHERE  `users`.`user_id` = ?";
+  $sql = "UPDATE `users` SET `full_name` = ? , `user_password` = ?, `user_contact` = ?, `user_type` = ?, `user_address` = ? WHERE  `users`.`user_id` = ?";
   // $stmt = $conn->query($sql);
 
   if(!$stmt = $conn->prepare($sql)){
@@ -477,7 +476,7 @@ function updateUser($conn, $id, $fname, $user_password, $confirm_password, $cont
   }
 
   
-    $stmt->bind_param("sssss", $fname, $hashedPwd, $contact, $u_type, $id );
+    $stmt->bind_param("ssssss", $fname, $hashedPwd, $contact, $u_type, $address, $id );
     $stmt->execute();  
 
     $trail_user = $_SESSION["full_name"];

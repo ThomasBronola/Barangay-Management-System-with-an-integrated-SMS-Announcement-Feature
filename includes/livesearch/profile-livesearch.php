@@ -15,9 +15,9 @@ if(isset($_POST['input'])){
                 <tr>
                     <th>User ID</th>
                     <th>Full Name</th>                                             
-                    <th>Email Address</th>
-                    <th>User Type</th>     
+                    <th>Email Address</th>                        
                     <th>Contact Number</th>                                                                                  
+                    <th>Documents</th> 
                     <th colspan="2" class="text-center">Action</th>                                                                                                               
                 </tr>
             </thead>
@@ -30,9 +30,9 @@ if(isset($_POST['input'])){
                         <tr>
                             <td><?php echo $row['user_id']; ?></td>
                             <td><?php echo $row['full_name']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['user_type']; ?></td>
+                            <td><?php echo $row['email']; ?></td>                            
                             <td><?php echo $row['user_contact']; ?></td>
+                            <td><?php echo $row['user_type']; ?></td>
 
                             <td class="text-center">
                                 <a class="fw-bold btn btn-primary btn-sm d-none d-sm-inline-block" role="button" id="clickUpdate" data-bs-toggle="modal" href="#modal-edit-user<?php echo $row['user_id'];?>"><i class="fw-bold far fa-edit fa-sm text-white-50"></i> Update User</a>                                                        
@@ -133,9 +133,9 @@ if(isset($_POST['input'])){
                 <tr>
                     <td><strong>User ID</strong></td>
                     <td><strong>Full Name</strong></td>
-                    <td><strong>Email Address</strong></td>
-                    <td><strong>User Type</strong></td>
+                    <td><strong>Email Address</strong></td>                    
                     <td><strong>Contact Number</strong></td>
+                    <td><strong>Documents</strong></td>
                     <td colspan="2" class="text-center"><strong>Action</strong></td>
                 </tr>
             </tfoot>

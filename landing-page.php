@@ -1,6 +1,6 @@
 <?php 
     session_start(); 
-    $_SESSION["user_type"] = "client";
+    $_SESSION["user_type"] = "landing";
     include_once 'includes/database.php';
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,9 @@
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54">
 
 <!-- HEADER -->
-<?php include 'HF/header.php';?> 
+<?php 
+    include 'HF/header.php';     
+?> 
 
     <!-- MAIN LANDING BODY -->
     <header class="masthead" style="background-image:url('assets/img/header-bg.jpg');">
@@ -28,7 +30,7 @@
             <div class="intro-text">
                 <div class="intro-lead-in"><span>Welcome To Barangay Singko Tres</span></div>
                 <div class="intro-heading text-uppercase"><span>HAVE A GREAT DAY!</span></div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" role="button" href="#announcements">See Announcements</a>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger text-dark" role="button" href="#announcements">See Announcements</a>
             </div>            
         </div>
     </header>

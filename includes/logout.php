@@ -13,7 +13,7 @@ $trail_time = date("H:i:sa");
 
 recordTrail($conn, $trail_user, $trail_utype, $trail_ip, $trail_action, $trail_date, $trail_time);
 
-$_SESSION["user_type"] = "client";
+$_SESSION["user_type"] = "landing";
 // session_unset();
 // session_destroy();
 header("location: ../index.php");
