@@ -50,7 +50,7 @@ include_once '../HF/adminNavigations.php';
                                             <div class="mb-3"><input class="form-control form-control-user" required type="text" id="address" placeholder="Address" name="address"></div>
                                             <div class="mb-3">
                                                     <select class="text-center form-control form-control-user" name="usertypeSELECT" required>
-                                                        <option disabled selected>--Select Usertype--</option>
+                                                        <option disabled selected>--Select User Type--</option>
                                                         <option value="captain">Captain</option>
                                                         <option value="secretary">Secretary</option>
                                                         <option value="tanod" >Tanod</option>

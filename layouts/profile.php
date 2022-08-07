@@ -268,8 +268,8 @@ $stmt = $conn->query($sql);
                                                                                                 </div>
                                                                                                 <div class="row">
                                                                                                     <div class="col">
-                                                                                                        <div class="mb-3"><label class="form-label" for="password"><strong>Password</strong></label>
-                                                                                                        <input type="text" required class="form-control" placeholder="Address" name="edit-address" /></div>
+                                                                                                    <div class="mb-3"><label class="form-label" for="user_contact"><strong>Contact Number</strong></label>
+                                                                                                        <input type="text" required class="form-control" id="address" placeholder="Address" name="edit-address" /></div>
                                                                                                     </div>                                                                                                    
                                                                                                 </div>
                                                                                                 <div class="row">
