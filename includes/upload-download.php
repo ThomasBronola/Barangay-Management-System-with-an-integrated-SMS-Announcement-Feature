@@ -186,6 +186,7 @@ if(isset($_POST["uploadIndigency"])){
     $filenum = "FILE3";
     $filename = $_FILES['FILE3']['name'];
    
+    
     $destination =  '../uploads/'.$filename;
 
     $extension = pathinfo($filename, PATHINFO_EXTENSION);
