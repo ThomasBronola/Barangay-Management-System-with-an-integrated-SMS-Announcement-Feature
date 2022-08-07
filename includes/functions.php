@@ -265,26 +265,26 @@ function realAnnounce($conn, $announce){
 
 
   //SMS API TESTING    
-  require_once '../twilio-php-main/twilio-php-main/src/Twilio/autoload.php';
-  $account_sid = 'ACd6c0d5cf6d9fb0166f4d8b927563a03d';
-  $auth_token = $auth;
-  $twilio_number = "+13082808881";
-  $client = new Client($account_sid, $auth_token); 
+  // require_once '../twilio-php-main/twilio-php-main/src/Twilio/autoload.php';
+  // $account_sid = 'ACd6c0d5cf6d9fb0166f4d8b927563a03d';
+  // $auth_token = $auth;
+  // $twilio_number = "+13082808881";
+  // $client = new Client($account_sid, $auth_token); 
 
-    while ($row2 = $stmt2->fetch_assoc()):    
-      $user = $row2['full_name'];
-      $userNumber = $row2['user_contact'];
-      // $send = "Good Day Ma'am/Sir ".$user.' -- '.$announcement;
+  //   while ($row2 = $stmt2->fetch_assoc()):    
+  //     $user = $row2['full_name'];
+  //     $userNumber = $row2['user_contact'];
+  //     // $send = "Good Day Ma'am/Sir ".$user.' -- '.$announcement;
 
-      $client->messages->create(
-          // Where to send a text message (your cell phone?)
-          $userNumber,
-          array(
-              'from' => $twilio_number,
-              'body' => $announcement
-          )
-      );
-    endwhile; 
+  //     $client->messages->create(
+  //         // Where to send a text message (your cell phone?)
+  //         $userNumber,
+  //         array(
+  //             'from' => $twilio_number,
+  //             'body' => $announcement
+  //         )
+  //     );
+  // endwhile; 
     
     echo '
     <script>
@@ -369,6 +369,7 @@ function saveBlotter($conn, $report, $complainant, $defendant) {
       location.replace("../layouts/blotter.php")
       </script>';  
 }
+
 
 function updateBlotter($conn, $report, $complainant, $defendant, $reportId) {
   session_start();

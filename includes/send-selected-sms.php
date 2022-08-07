@@ -1,7 +1,7 @@
 <?php
 use Twilio\Rest\Client;
 
-if(isset($_POST["save-real-announcement"])){
+if(isset($_POST["send-selected-sms"])){
 
     $announce = $_POST["txtArea-announcement"];
     $contactNumber = $_POST["Contact"];
@@ -12,14 +12,6 @@ if(isset($_POST["save-real-announcement"])){
     session_start();
   
     $sql = "INSERT INTO sms_archive (`message`, `message_date`) VALUES (?,?);";
-    if(!$stmt = $conn->prepare($sql)){
-        echo '
-        <script>
-        alert("Something went wrong. Please try again.")
-        history.back()
-        </script>';
-    }
-  
     if(!$stmt = $conn->prepare($sql)){
         echo '
         <script>

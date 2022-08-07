@@ -136,7 +136,7 @@
                                                                     <textarea autofocus rows="20" cols="30" id="txtArea-announcement" name="txtArea-announcement"></textarea>       
                                                                     <div class="text-center">                                       
                                                                         <br>
-                                                                        <button class="btn btn-primary btn-sm d-none d-sm-inline-block text-light" role="button" name="save-real-announcement"><i class="fas fa-send fa-mdtext-black-50"></i> Send Message</button>
+                                                                        <button class="btn btn-primary btn-sm d-none d-sm-inline-block text-light" role="button" name="send-selected-sms"><i class="fas fa-send fa-mdtext-black-50"></i> Send Message</button>
                                                                         <div><br></div>
                                                                     </div>
                                                             </div>
