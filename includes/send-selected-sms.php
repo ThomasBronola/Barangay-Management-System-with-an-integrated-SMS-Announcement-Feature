@@ -3,7 +3,7 @@ use Twilio\Rest\Client;
 
 if(isset($_POST["send-selected-sms"])){
 
-    $announce = $_POST["txtArea-announcement"];
+    $announce = $_POST["txtArea-announcement1"];
     $contactNumber = $_POST["Contact"];
 
     require_once 'database.php';
@@ -42,9 +42,9 @@ if(isset($_POST["send-selected-sms"])){
   
     //SMS API TESTING    
     require_once '../twilio-php-main/twilio-php-main/src/Twilio/autoload.php';
-    $account_sid = 'ACd6c0d5cf6d9fb0166f4d8b927563a03d';
+    $account_sid = $row3['sid'];
     $auth_token = $auth;
-    $twilio_number = "+13082808881";
+    $twilio_number = $row3['phone'];
     $client = new Client($account_sid, $auth_token); 
   
   

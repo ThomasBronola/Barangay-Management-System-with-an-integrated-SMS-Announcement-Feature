@@ -63,7 +63,8 @@
             <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#modal-message" data-bs-toggle="modal" id="save-announcement" name="save-announcement"><i class="fas fa-send fa-sm text-white-50"></i>  Send SMS</a>
         </div>
     </div>
-
+    </form>
+    
     <br><br><br><br><br>
 
     <div class="row">
@@ -133,10 +134,10 @@
                                                                     <div class="col col-xl-6 offset-xl-0 text-center"><input name="Contact" class="text-center login" style="pointer-events: none" value="<?php echo $row['user_contact']; ?>" /></div>
                                                                 </div> 
                                                                     <br>
-                                                                    <textarea autofocus rows="20" cols="30" id="txtArea-announcement" name="txtArea-announcement"></textarea>       
+                                                                    <textarea autofocus rows="20" cols="30" id="txtArea-announcement" required name="txtArea-announcement1"></textarea>       
                                                                     <div class="text-center">                                       
                                                                         <br>
-                                                                        <button class="btn btn-primary btn-sm d-none d-sm-inline-block text-light" role="button" name="send-selected-sms"><i class="fas fa-send fa-mdtext-black-50"></i> Send Message</button>
+                                                                        <button class="btn btn-primary btn-sm d-none d-sm-inline-block text-light" role="button" type="submit" name="send-selected-sms"><i class="fas fa-send fa-mdtext-black-50"></i> Send Message</button>
                                                                         <div><br></div>
                                                                     </div>
                                                             </div>
@@ -264,11 +265,10 @@
                                     <p class="item-intro text-dark fw-bold">This cannot be change later. Please double check your work before you continue.</p> 
                                         <div style="text-align: left;"> 
                                             <br> 
-                                            <button class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" id="real-announcement" name="save-real-announcement"><i class="fas fa-send fa-sm text-white-50"></i>  Send SMS</button>                    
+                                            <button class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" type="submit" id="real-announcement" name="save-real-announcement"><i class="fas fa-send fa-sm text-white-50"></i>  Send SMS</button>                    
                                             <button class="btn btn-primary btn-sm d-none d-sm-inline-block modal-dismiss" type="button" data-bs-dismiss="modal"><i class="fa fa-solid fa-arrow-left"></i>  Back</button></div>                                
                                             <br> 
-                                        </div>
-                                    </form>
+                                        </div>                                  
                                 </div>
                             </div>
                         </div>
